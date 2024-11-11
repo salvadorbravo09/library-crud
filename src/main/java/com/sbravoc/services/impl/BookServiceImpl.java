@@ -13,7 +13,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class BookServiceImpl implements BookService {
 
-    private BookRepository bookRepository;
+    private final BookRepository bookRepository;
 
     @Override
     public Book saveBook(Book book) {
