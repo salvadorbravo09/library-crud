@@ -2,6 +2,7 @@ package com.sbravoc.controllers;
 
 import com.sbravoc.entities.Book;
 import com.sbravoc.services.BookService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,16 +11,12 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/book")
+@RequestMapping("/book")
 @CrossOrigin("http://localhost:4200/")
 public class BookController {
 
+    @Autowired
     private BookService bookService;
-
-    // Inyeccion de la interfaz
-    public BookController(BookService bookService) {
-        this.bookService = bookService;
-    }
 
     @PostMapping
     public ResponseEntity<Book> saveBook(@RequestBody Book book) {
